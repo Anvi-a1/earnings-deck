@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Q2 Earnings – Interactive RevealJS Deck</title>
+  <!-- Reveal.js core & themes via CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@5/dist/reveal.css" />
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@5/dist/theme/black.css" id="theme" />
+  <!-- Highlight.js default theme (Reveal Highlight plugin will hook into this) -->
+  <link rel="stylesheet" href="https://unpkg.com/highlight.js@11.9.0/styles/default.min.css">
+  <style>
+    .brand { font-weight: 700; letter-spacing: .5px; }
+    .subtitle { font-size: .8em; opacity: .8; }
+    .pill { display:inline-block; padding: .25em .6em; border-radius: 999px; border:1px solid rgba(255,255,255,.35); }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- Title slide (HTML) -->
+      <section>
+        <h2 class="brand">Quarterly Earnings Report</h2>
+        <p class="subtitle">Demonstration of modern presentation capabilities</p>
+        <p style="margin-top: 20px">Prepared by: <strong>Technical Consultant</strong></p>
+        <p>Email: <a href="mailto:23f2004665@ds.study.iitm.ac.in">23f2004665@ds.study.iitm.ac.in</a></p>
+        <p class="fragment">Press <span class="pill">S</span> to open speaker notes</p>
+        <aside class="notes">
+          Welcome! This deck showcases animated fragments, Markdown slides, math, syntax-highlighted code, and notes. Use → / ↓ to navigate. Press <strong>F</strong> for fullscreen and <strong>O</strong> for overview.
+        </aside>
+      </section>
+
+      <!-- Markdown slide (meets the "at least one slide in Markdown" requirement) -->
+      <section data-markdown>
+        <script type="text/template">
+# Agenda
+- **Financial Highlights** *(YoY / QoQ)*
+- **KPI Deep-Dive**: NIM, NPA, CASA
+- **Risk & Provisions**
+- **Outlook & Guidance**
+
+> Tip: Use the left/right keys to move across sections and up/down for vertical stacks.
+
+Notes:
+- Focus the audience on the 3 KPIs that moved the needle.
+        </script>
+        <aside class="notes">
+          Hit this slide to set expectations: we will go from summary to details, then outlook.
+        </aside>
+      </section>
+
+      <!-- Fragments (animated bullet reveal) -->
+      <section>
+        <h3>Highlights (QoQ)</h3>
+        <ul>
+          <li class="fragment">Net Interest Income ↑ <strong>4.2%</strong></li>
+          <li class="fragment">Operating Expenses ↓ <strong>1.1%</strong></li>
+          <li class="fragment">Credit Cost at <strong>73 bps</strong></li>
+          <li class="fragment">ROE improved to <strong>17.4%</strong></li>
+        </ul>
+        <aside class="notes">Reveal each point to pace the narrative. Pause after ROE to segue to drivers.</aside>
+      </section>
+
+      <!-- Code sample with syntax highlighting -->
+      <section>
+        <h3>Code: Quick KPI Utility (Python)</h3>
+        <pre><code class="language-python">from math import pow
+
+def cagr(start, end, years):
+    """Compound Annual Growth Rate"""
+    return pow(end / start, 1/years) - 1
+
+assets_2022 = 1.85e12
+assets_2025 = 2.45e12
+print(f"CAGR: {cagr(assets_2022, assets_2025, 3):.2%}")
+</code></pre>
+        <aside class="notes">Explain that this snippet supports management Q&A. The highlight plugin auto-detects Python syntax.</aside>
+      </section>
+
+      <!-- Math (financial formulas) using KaTeX via RevealMath plugin -->
+      <section>
+        <h3>Financial Math</h3>
+        <p>Net Present Value:</p>
+        <p>\[ \mathrm{NPV} = \sum_{t=1}^{T} \frac{CF_t}{(1 + r)^t} - C_0 \]</p>
+        <p>CAPM (Cost of Equity):</p>
+        <p>\[ \mathrm{E}(R_i) = R_f + \beta_i\big(\mathrm{E}(R_m) - R_f\big) \]</p>
+        <aside class="notes">Remind the audience that NPV supports project selection; CAPM informs hurdle rates.</aside>
+      </section>
+
+      <!-- Vertical stack example with fragments and notes -->
+      <section>
+        <section>
+          <h3>Asset Quality</h3>
+          <p class="fragment">GNPA: <strong>2.1%</strong></p>
+          <p class="fragment">NNPA: <strong>0.6%</strong></p>
+          <aside class="notes">Call out the improvement vs last quarter; attribute to recoveries.</aside>
+        </section>
+        <section>
+          <h3>Provision Coverage</h3>
+          <p>\[ \text{PCR} = \frac{\text{Provisions}}{\text{Gross NPA}} \times 100\% \]</p>
+          <p class="fragment">PCR: <strong>76%</strong></p>
+          <aside class="notes">Mention that PCR > 70% offers downside protection.</aside>
+        </section>
+      </section>
+
+      <!-- Closing slide -->
+      <section>
+        <h3>Thank You</h3>
+        <p>Contact: <a href="mailto:23f2004665@ds.study.iitm.ac.in">23f2004665@ds.study.iitm.ac.in</a></p>
+        <p class="fragment">Live demo: Host on <span class="pill">GitHub Pages</span></p>
+        <aside class="notes">Invite questions. If time permits, jump back to the KPI slide for a recap.</aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js and plugins -->
+  <script src="https://unpkg.com/reveal.js@5/dist/reveal.js"></script>
+  <script src="https://unpkg.com/reveal.js@5/plugin/markdown/markdown.js"></script>
+  <script src="https://unpkg.com/reveal.js@5/plugin/highlight/highlight.js"></script>
+  <script src="https://unpkg.com/reveal.js@5/plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@5/plugin/math/math.js"></script>
+
+  <script>
+    // Initialize Reveal
+    const deck = new Reveal({
+      hash: true,
+      slideNumber: true,
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+      plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX ],
+      // Configure KaTeX (Math plugin)
+      math: {
+      }
+    });
+    deck.initialize();
+  </script>
+
+</body>
+</html>
